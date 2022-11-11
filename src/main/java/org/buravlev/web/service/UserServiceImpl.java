@@ -8,7 +8,6 @@ import org.buravlev.web.model.User;
 import java.util.List;
 
 @Service
-@Transactional
 public class UserServiceImpl implements UserService {
     private final UserDao userDAO;
 
@@ -26,7 +25,7 @@ public class UserServiceImpl implements UserService {
     public User getUserById(int id) {
         return userDAO.getUserById(id);
     }
-
+    @Transactional
     @Override
     public void save(User user) {
         userDAO.save(user);
@@ -36,7 +35,7 @@ public class UserServiceImpl implements UserService {
     public void delete(int id) {
         userDAO.delete(id);
     }
-
+    @Transactional
     @Override
     public void update(User user) {
         userDAO.update(user);
